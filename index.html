@@ -39,8 +39,8 @@
 			<h2>PROPUESTAS</h2>
 			<ul class="votes-panel">
 				<li class="vote-item" ng-repeat="(k, party) in candidates">
-					<h4> <span ng-click="removeCandidate(k)">{{$index}}.-</span> {{party.name}} (por: {{party.owner}})</h4>
-					<button ng-click="party.vote()">Vota</button>
+					<h4> <span ng-dblclick="removeCandidate(k)">{{$index}}.-</span> {{party.name}} (por: {{party.owner}})</h4>
+					<button ng-click="$parent.voteCandidate(k, party)">Vota</button>
 					<span class="vote-marker" ng-repeat="v in party.votes track by $index"></span>
 				</li>
 			</ul>
@@ -48,8 +48,8 @@
 				<form ng-submit="createCandidate(newCandidate, form)" name="form" novalidate>
 					<div class="new">
 						<span>Nueva Propuesta</span>
-						<input type="text" ng-model="newCandidate.name" placeholder="Descripcion Proyecto">
-						<input type="text" ng-model="newCandidate.owner" placeholder="Creador">
+						<input type="text" ng-model="newCandidate.name" placeholder="Descripcion Proyecto" required>
+						<input type="text" ng-model="newCandidate.owner" placeholder="Creador" required>
 						<button type="submit" ng-disabled="form.$invalid">Agregar</button>
 					</div>
 				</form>
