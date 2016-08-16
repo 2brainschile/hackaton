@@ -20,6 +20,10 @@ h1, h2, h3, h4, h5, h6 {
 	text-transform: uppercase;
 }
 
+h1, h2, h3, pre {
+	color: white;
+}
+
 .votes-panel {
 	list-style:none;
 	padding: 0;
@@ -34,7 +38,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .vote-marker {
 	display:inline-block;
-	background: #00FFFF;
+	background: white;
 	margin: 2px;
 	width: 10px;
 	height: 10px;

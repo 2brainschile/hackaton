@@ -37,7 +37,7 @@
 |________/|_______/ |__/  |__/|__/  |__/|______/|__/  \__/ \______/ 
 </pre>    
 
-      <h1>Próxima hackaton 2brains: 26 de Agosto</h1>
+      <h1>Próxima hackaton 2brains: <u>26 de Agosto</u></h1>
       <p>//////////////////////////////////////////////////////////</p>
       <h2>¿DE QUE SE TRATA?</h2>                                                       
       <h4>
@@ -62,7 +62,7 @@
       
       <div class="row">
         <h2>VOTA POR UNA PROPUESTA</h2>
-        <h4>Selecciona una idea con la que te identifiques y en la cual te gustaría desarrollar en la siguiente hackaton. No cheating pls.</h4>
+        <h4>Selecciona una idea con la que te identifiques y en la cual te gustaría desarrollar en la siguiente hackaton. <BR><u>Los cheaters serán castigados con un mes sin RICAFE™.</u></h4>
         <p>//////////////////////////////////////////////////////////</p>
         <ul class="votes-panel">
           <li class="vote-item" ng-repeat="(k, party) in candidates">
@@ -76,7 +76,8 @@
    ]"-_[   
    ]"-_[ 
 </pre>
-            <h3> <span ng-dblclick="removeCandidate(k)">[{{$index+1}}]</span> {{party.name}} (por: {{party.owner}})</h3>
+            <h3> <span ng-dblclick="removeCandidate(k)">[{{$index+1}}]</span> <u>{{party.name}}</u></h3>
+            <b>POR: </b>{{party.owner}}<br>
             <b>DESC: </b>{{party.description}}<br>
             <b>URL: </b><a href="{{party.url}}">{{party.url}}</a><br><br>
             <button ng-click="$parent.voteCandidate(k, party)">VOTA!</button>
