@@ -36,42 +36,55 @@
 				Las hackatones 2brains son instancias para aprender y desarrollar con otros colegas de 2brains ideas "descabelladas" y potentes que transformen nuestro entorno. Selecciona una idea con la que te identifiques y en la cual te gustaría desarrollar en la siguiente hackaton presionando el botón: "Vota"
 			</p>
 			<p>//////////////////////////////////////////////////////////</p>
-			<h2>PROPUESTAS</h2>
-			<ul class="votes-panel">
-				<li class="vote-item" ng-repeat="(k, party) in candidates">
-					<h4> <span ng-dblclick="removeCandidate(k)">{{$index}}.-</span> {{party.name}} (por: {{party.owner}})</h4>
-					<button ng-click="$parent.voteCandidate(k, party)">Vota</button>
-					<span class="vote-marker" ng-repeat="v in party.votes track by $index"></span>
-				</li>
-			</ul>
+			<h2>CREA UNA NUEVA PROPUESTA</h2>
+			<p>Manten la propuesta resumida, puedes agregar una descripcion más larga y un link anexo</p>
 			<div class="new-candidate">
 				<form ng-submit="createCandidate(newCandidate, form)" name="form" novalidate>
 					<div class="new">
-						<span>Nueva Propuesta</span>
-						<input type="text" ng-model="newCandidate.name" placeholder="Descripcion Proyecto" required>
+						<input type="text" ng-model="newCandidate.name" placeholder="Nombre Proyecto" required>
+						<input type="text" ng-model="newCandidate.description" placeholder="Descripcion Proyecto">
+						<input type="text" ng-model="newCandidate.url" placeholder="Link Anexo">
 						<input type="text" ng-model="newCandidate.owner" placeholder="Creador" required>
 						<button type="submit" ng-disabled="form.$invalid">Agregar</button>
 					</div>
 				</form>
 			</div>
+			<p>//////////////////////////////////////////////////////////</p>
+			
+			<div class="row">
+				<h2>VOTA POR UNA PROPUESTA</h2>
+				<ul class="votes-panel">
+					<li class="vote-item" ng-repeat="(k, party) in candidates">
+						<h3> <span ng-dblclick="removeCandidate(k)">[{{$index}}]</span> {{party.name}} (por: {{party.owner}})</h3>
+						<b>DESCRIPCIÓN: </b>{{party.description}}<br>
+						<b>URL: </b>{{party.url}}<br><br>
+						<button ng-click="$parent.voteCandidate(k, party)">Vota</button>
+						<span class="vote-marker" ng-repeat="v in party.votes track by $index"></span>
+					</li>
+				</ul>
+			</div>
+			
+			
 		</div>
 		<div class="row">
-		<small>Auspiciado por RICAFE. "Un espacio para soñar."</small>
-			                {
-   }   }   {
-  {   {  }  }
-   }   }{  {
- _{  }{  }  }_
-(  }{  }{  {  )
-|""---------""|     
-|             /""\    
-|            | _  | 
-|             / | | 
-|             |/  | 
-|             /  / 
-|            |  / 
-|            "T"    
- ""---------""
+
+<pre>
+     }   }   {
+    {   {  }  }
+     }   }{  {
+   _{  }{  }  }_
+  (  }{  }{  {  )
+  |""---------""|     
+  | Auspiciado  /""\    
+  |     por    | _  | 
+  |   RICAFE™   / | | 
+  |             |/  | 
+  |             /  / 
+  |            |  / 
+  |            "T"    
+   ""---------""
+"Un espacio para soñar"
+</pre>
 		</div>
 	</div>
 
