@@ -37,7 +37,7 @@ h1, h2, h3, pre {
 	border-bottom: 2px dashed #68EDC5;*/
 }
 
-.vote-item span {
+.vote-item span, .vote-item a {
 	color: white;
 }
 
