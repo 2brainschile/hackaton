@@ -12,6 +12,7 @@ input, button {
 	color: #00FFFF;
 	padding: 10px;
 	font-size: 18px;
+	margin: 5px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -34,6 +35,10 @@ h1, h2, h3, pre {
 	padding-bottom: 20px;
 	margin-bottom: 40px;
 	border-bottom: 2px dashed #68EDC5;*/
+}
+
+.vote-item span {
+	color: white;
 }
 
 .vote-marker {

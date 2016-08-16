@@ -54,7 +54,7 @@
             <input type="text" ng-model="newCandidate.description" placeholder="Descripcion Proyecto">
             <input type="text" ng-model="newCandidate.url" placeholder="Link Anexo">
             <input type="text" ng-model="newCandidate.owner" placeholder="Creador" required>
-            <button type="submit" ng-disabled="form.$invalid">Agregar</button>
+            <button type="submit" ng-disabled="form.$invalid">ENVIA TU IDEA</button>
           </div>
         </form>
       </div><br>
@@ -77,9 +77,9 @@
    ]"-_[ 
 </pre>
             <h3> <span ng-dblclick="removeCandidate(k)">[{{$index+1}}]</span> <u>{{party.name}}</u></h3>
-            <b>POR: </b>{{party.owner}}<br>
-            <b>DESC: </b>{{party.description}}<br>
-            <b>URL: </b><a href="{{party.url}}">{{party.url}}</a><br><br>
+            <b>POR: </b><span>{{party.owner}}</span><br>
+            <b>DESC: </b><span>{{party.description}}</span><br>
+            <b>URL: </b><span><a href="{{party.url}}">{{party.url}}</a></span><br><br>
             <button ng-click="$parent.voteCandidate(k, party)">VOTA!</button>
             <span class="vote-marker" ng-repeat="v in party.votes track by $index"></span>
             <p>//////////////////////////////////////////////////////////</p>
