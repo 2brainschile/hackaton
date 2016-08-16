@@ -26,10 +26,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .vote-item {
-	margin-top: 40px;
+	/*margin-top: 40px;
 	padding-bottom: 20px;
 	margin-bottom: 40px;
-	border-bottom: 2px dashed #68EDC5;
+	border-bottom: 2px dashed #68EDC5;*/
 }
 
 .vote-marker {
@@ -45,5 +45,11 @@ h1, h2, h3, h4, h5, h6 {
   background: #ccc;
   color: #000;
   padding: 0.2em 0;
+}
+
+.bulb {
+	width:100px;
+	float:left;
+	margin-top:-5px
 }
 
