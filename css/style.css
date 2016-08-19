@@ -1,5 +1,8 @@
 body {
-	background: #0C0D0D;
+	background: #000200;
+	background-image: url(http://i.giphy.com/11LU9WM7wlcRDa.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
 	color: #00FFFF;
 	font-family: 'Space Mono', monospace;
 	padding: 20px;
