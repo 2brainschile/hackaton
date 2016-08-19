@@ -10,7 +10,7 @@ angular
 })
 .factory('Candidate', ['$firebase', 'CONFIG', function ($firebase, CONFIG) {
 
-		return function(name, owner) {
+		return function(name, description, url, owner) {
 			var self = this;
 			var fb =  new Firebase(CONFIG.firebaseId);
 			var entry = fb.child('/votes/' + name);
@@ -27,51 +27,35 @@ angular
 		};
 }])
 .controller('MainCtrl', function ($scope, Candidate, CONFIG, $timeout) {
-		var ref = new Firebase(CONFIG.firebaseId);
-		var projects = ref.child("candidates")
-		// var votes = ref.child('votes');
+	var ref = new Firebase(CONFIG.firebaseId);
+	var projects = ref.child("candidates")
 
+	$scope.newCandidate = {};
+
+	projects.on("value", function(snapshot) {
+		$timeout(function() {
+			$scope.candidates = snapshot.val();
+		}, 100);  			
+	});
+
+	$scope.createCandidate = function (c, form){
+		form.$setPristine();
 		$scope.newCandidate = {};
+		ref.child("candidates").push(c);
+	}
 
-		projects.on("value", function(snapshot) {
-  			$timeout(function() {
-  				$scope.candidates = snapshot.val()
-  				// var cand = snapshot.val()
-  				// console.log(cand)
-  				// angular.forEach(cand, function(k, c){
-  				// 	$scope.candidates = new Candidate(c.name, c.owner),
-  				// })	
-  			}, 100);  			
-		});
+	$scope.removeCandidate = function(pId){
+		projects.child(pId).remove();
+	}
 
-		// $scope.candidates = [
-		// 	new Candidate('Un red social para perros (por: El Chico Terry)'),
-		// 	new Candidate('Cocinar sin sal (por: Martín Carcamo)'),
-		// 	new Candidate('Tomarse un gimnasio en Pokemon (por: Fyto Manga)')
-		// ];
-
-		$scope.createCandidate = function (c, form){
-			form.$setPristine();
-			$scope.newCandidate = {};
-   			ref.child("candidates").push(c)
-
+	$scope.voteCandidate = function (id, candidate){
+		console.log(candidate);
+		console.log(id);
+		if (angular.isDefined(candidate.votes)) {
+			candidate.votes.push(1)		
+		} else{
+			candidate.votes = [1];
 		}
-
-		$scope.removeCandidate = function(pId){
-			projects.child(pId).remove();
-		}
-
-		$scope.voteCandidate = function (id, candidate){
-			console.log(candidate)
-			console.log(id)
-			if (angular.isDefined(candidate.votes)) {
-				candidate.votes.push(1)		
-			} else{
-				candidate.votes = [1];
-			}
-			projects.child(id).update({votes: candidate.votes})
-		}
-		
-
-
-  });
+		projects.child(id).update({votes: candidate.votes})
+	}
+});
