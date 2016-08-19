@@ -26,7 +26,7 @@ angular
 			};
 		};
 }])
-.controller('MainCtrl', function ($scope, Candidate, CONFIG, $timeout) {
+.controller('MainCtrl', function ($scope, Candidate, CONFIG, $timeout, $interval) {
 	var ref = new Firebase(CONFIG.firebaseId);
 	var projects = ref.child("candidates")
 
@@ -58,4 +58,16 @@ angular
 		}
 		projects.child(id).update({votes: candidate.votes})
 	}
+
+	$interval(function(){
+		var targetElements = ["h1", "h2", "h3", "h4", "span", "p", "a", "small"]
+
+		var elements = document.querySelectorAll(targetElements[Math.floor(Math.random() * (targetElements.length))])
+		if (elements.length > 0) {
+			var b = baffle(elements[Math.floor(Math.random() * (elements.length))], {exclude: ['áéíóú'],speed:70})
+			b.reveal(2400)
+		};
+		
+
+	}, 2500)
 });
